@@ -1,0 +1,260 @@
+/* Reset & base */
+  * {
+    margin:0; padding:0; box-sizing: border-box;
+  }
+  body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e4e6fc, #8e95e1);
+    overflow-x: hidden;
+    transition: background 0.5s;
+  }
+  body.dark {
+    background: linear-gradient(135deg, #010000, #030303);
+    color: #eeeeee;
+  }
+  .container {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+    color: #5865f0;
+  }
+  body.dark .container {
+    color: #8088ff;
+  }
+
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 0.3rem;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+  }
+
+  /* Avatar */
+  .avatar {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(68, 27, 216, 0.5);
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 6px solid #8680ff;
+    transition: border-color 0.5s;
+  }
+  body.dark .avatar {
+    border-color: #4063ff;
+    box-shadow: 0 10px 25px rgba(74, 64, 255, 0.8);
+  }
+
+  /* Countdown */
+  #countdown {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.06em;
+    user-select: none;
+  }
+
+  /* Typing effect container */
+  #typing-text {
+    max-width: 600px;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    min-height: 90px;
+    color: #220e88;
+  }
+  body.dark #typing-text {
+    color: #cac1ff;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #471bd8;
+    color: rgb(255, 255, 255);
+    margin: 0 12px;
+    box-shadow: 0 6px 15px rgba(58, 27, 216, 0.5);
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  .btn:hover {
+    background: #1e1ee9;
+    box-shadow: 0 8px 22px rgba(33, 30, 233, 0.7);
+  }
+  body.dark .btn {
+    background: #404aff;
+    box-shadow: 0 6px 15px rgba(86, 64, 255, 0.7);
+  }
+  body.dark .btn:hover {
+    background: #5200f5;
+    box-shadow: 0 8px 22px rgba(20, 0, 245, 0.9);
+  }
+
+  /* Dark mode toggle */
+  #mode-toggle {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    background: #2b1bd8;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    padding: 10px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 20;
+    box-shadow: 0 5px 15px rgba(43, 27, 216, 0.7);
+    transition: background 0.3s;
+  }
+  #mode-toggle:hover {
+    background: #4a1ee9;
+  }
+  body.dark #mode-toggle {
+    background: #4a40ff;
+    box-shadow: 0 5px 15px rgba(64, 86, 255, 0.9);
+  }
+  body.dark #mode-toggle:hover {
+    background: #0c00f5;
+  }
+
+  /* Music button */
+  #music-btn {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    background: #1e1bd8;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    padding: 10px 18px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 20;
+    box-shadow: 0 5px 15px rgba(65, 27, 216, 0.7);
+    transition: background 0.3s;
+  }
+  #music-btn:hover {
+    background: #1e25e9;
+  }
+  body.dark #music-btn {
+    background: #4043ff;
+    box-shadow: 0 5px 15px rgba(67, 64, 255, 0.9);
+  }
+  body.dark #music-btn:hover {
+    background: #1d00f5;
+  }
+
+  /* Popup */
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 100;
+    padding: 30px;
+    user-select: none;
+  }
+  body.dark .popup {
+    background: #1d1b3f;
+    color: #c1c1ff;
+    box-shadow: 0 6px 25px rgba(86, 64, 255, 0.8);
+  }
+  .popup.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  .popup img {
+    width: 100px;
+    margin-bottom: 20px;
+    user-select: none;
+    border-radius: 50%;
+  }
+  .popup h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #2b1bd8;
+  }
+  body.dark .popup h2 {
+    color: #8082ff;
+  }
+  .popup p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #444;
+  }
+  body.dark .popup p {
+    color: #c1b6ff;
+  }
+  .close-btn {
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #241bd8;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(27, 62, 216, 0.5);
+    transition: background 0.3s;
+  }
+  .close-btn:hover {
+    background: #281ee9;
+  }
+  body.dark .close-btn {
+    background: #6640ff;
+    box-shadow: 0 6px 15px rgba(70, 64, 255, 0.7);
+  }
+  body.dark .close-btn:hover {
+    background: #1400f5;
+  }
+
+  /* Canvas for fireworks */
+  #fireworks {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 90;
+  }
+
+  /* Falling emojis */
+  .falling-emoji {
+    position: fixed;
+    top: -40px;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.85;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fall {
+    to {
+      transform: translateY(110vh);
+      opacity: 0;
+    }
+  }
+
+  #exit-btn {
+  transition: top 0.3s ease, left 0.3s ease;
+}
